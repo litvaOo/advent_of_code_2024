@@ -15,7 +15,6 @@ line_pointer += 1
 
 sum = 0
 for line in lines[line_pointer:]:
-    print(hashmap)
     line_processed = list(map(int, line.split(",")))
     correct = True
     for key in hashmap.keys():
@@ -25,9 +24,9 @@ for line in lines[line_pointer:]:
             if i == key:
                 break
             if i in hashmap[key]:
-                print(f"{i}, {key}")
                 correct = False
                 break
     if correct:
         sum += line_processed[len(line_processed) // 2]
+
 print(sum)
