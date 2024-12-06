@@ -3,21 +3,19 @@ with open("input.txt") as f:
     lines = f.readlines()
 
 matrix = []
-start = [0, 0]
+position = [0, 0]
 for line_num, line in enumerate(lines):
     matrix.append([])
     for i, c in enumerate(line):
         if c == "#":
             matrix[-1].append(-1)
         elif c == "^":
-            start = [line_num, i]
+            position = [line_num, i]
         else:
             matrix[-1].append(1)
 
 direction = [-1, 0]
 sum = 0
-position = start
-print(position)
 while True:
     try:
         if position[0] + direction[0] < 0 or position[0] + direction[0] >= len(
