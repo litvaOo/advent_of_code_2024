@@ -16,15 +16,9 @@ for line_num, line in enumerate(lines):
             continue
         hashmap[char].append([line_num, col])
 
-print(hashmap)
 sum = 0
 for key in hashmap.keys():
-    print(hashmap[key])
-    print(list(combinations(hashmap[key], 2)))
-    # __import__("ipdb").set_trace()
-
     for pair in combinations(hashmap[key], 2):
-        print(f"pair is {pair}")
         x_diff = pair[1][1] - pair[0][1]
         y_diff = pair[1][0] - pair[0][0]
         position = [pair[0].copy(), pair[1].copy()]
@@ -54,7 +48,4 @@ for line in matrix:
     for char in line:
         if chr(char) != "." and chr(char) != "\n":
             res += 1
-        print(chr(char), end="")
-print()
-print(sum)
 print(res)

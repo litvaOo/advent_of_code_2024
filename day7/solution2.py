@@ -4,15 +4,17 @@ with open("input.txt") as f:
 
 sum = 0
 for line in lines:
-    result = int(line.split(":")[0])
-    numbers = list(map(int, line.split(":")[1].split()))
+    tmp = line.split(":")
+    result = int(tmp[0])
+    result_str = tmp[0]
+    numbers = list(map(int, tmp[1].split()))
 
     def sum_search(first_number, index):
         if index == len(numbers) - 1:
             return (
                 first_number * numbers[index] == result
                 or first_number + numbers[index] == result
-                or int(str(first_number) + str(numbers[index])) == result
+                or str(first_number) + str(numbers[index]) == result_str
             )
         if first_number > result:
             return False
